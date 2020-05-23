@@ -1,0 +1,28 @@
+var asyncOperation = function(time) {
+    return new Promise( (resolve,reject) => {
+        setTimeout(() => resolve(time),time)
+    })
+}
+
+var promisesList = [asyncOperation(1000),asyncOperation(2000),asyncOperation(3000)]
+
+var PromisesAll = function(promisesToMake) {
+    var results = [];
+    var totalPromises = 0;
+
+    return new Promise( (resolve,reject) => {
+        promisesToMake.forEach( (promise,index) => {
+          promise.then( value => {
+            results[index] = value;
+            totalPromises++;
+            console.log(totalPromises)
+            if(totalPromises === promisesToMake.length){
+                resolve(results)
+            }
+          })  
+        })
+    })
+}
+PromisesAll(promisesList).then(value => {
+    console.log(value)
+})

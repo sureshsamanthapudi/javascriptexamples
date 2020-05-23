@@ -1,0 +1,20 @@
+Function.prototype.myCall = function(someOtherThis) {
+    var args = []
+    someOtherThis.fnName = this
+    for(var i=1;i<arguments.length;i++){
+        args.push("arguments[" + i + "]");
+    }
+    console.log("args",args)
+    // eval("newObj.fname("+args+")")
+     eval("someOtherThis.fnName(" + args + ")");
+}
+
+var obj = {
+    name: 'suresh'
+}
+
+function showMessage(message) {
+    console.log("1")
+    console.log(message,this.name)
+}
+showMessage.myCall(obj,"welcome")

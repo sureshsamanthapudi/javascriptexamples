@@ -1,0 +1,11 @@
+Array.prototype.myReduce = function(func,thisArg) {
+    if( !((typeof func === 'Function' || typeof func === 'function') && this)) throw new TypeError
+    var result ;
+    var accumlater = 0;
+    for(var i = 0;i<this.length;i++){
+        var val = this[i]
+        accumlater = func(accumlater,val,i,this)
+    }
+    return accumlater
+};
+[15.5, 2.3, 1.1, 4.7].myReduce( (total,number) =>  Math.round(total + Math.round(number)))

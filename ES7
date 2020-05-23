@@ -1,0 +1,7 @@
+var arr = ['suresh','rajesh','jashwin','rajesh','anshul']
+console.log("Includes check",arr.includes('suresh'))
+
+
+var base = 3
+var exponent = 4
+console.log("Exponent result", (base ** 4))

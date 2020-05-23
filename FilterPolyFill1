@@ -1,0 +1,12 @@
+Array.prototype.MyFilter = function(func) {
+    var res = [];
+    for(var i=0;i<this.length;i++){
+        var val = this[i]
+        if(func.call(this,val,i)){
+            res.push(val)
+        }
+    }
+    return res;
+}
+var result = [5,4,8,9,34,19].MyFilter(val => val%2 === 0)
+console.log(result)

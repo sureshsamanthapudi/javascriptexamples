@@ -1,0 +1,19 @@
+var x = 100;
+var x = 101;
+
+let y = 102;
+y = 104;
+
+function test(){
+    console.log("test function",this.x);
+}
+function test1() {
+//     this.y = 10;
+    test();
+    console.log(this.y, "ZZZ");
+}
+
+test1();
+
+
+th

@@ -1,0 +1,21 @@
+//Object.values
+//var countries = {    BR: 'Brazil',    DE: 'Germany',    RO: 'Romania',    US: 'United States of America'};
+//console.log(Object.values(countries));
+
+
+//Object.entries
+//var countries = {    BR: 'Brazil',    DE: 'Germany',    RO: 'Romania',    US: 'United States of America'};
+//console.log(Object.entries(countries));
+
+//padStart
+// console.log('hi'.padStart(1));
+// console.log('hi'.padStart(5));
+// console.log('hi'.padStart(5,"abcd"));
+// console.log('hi'.padStart(10,"abcd"));
+
+
+//padEnd
+console.log('hi'.padEnd(1));
+console.log('hi'.padEnd(5));
+console.log('hi'.padEnd(5,"abcd"));
+console.log('hi'.padEnd(10,"abcd"));

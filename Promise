@@ -1,0 +1,83 @@
+function MyPromise(action){
+    this.status = 'pending';
+    this.value = undefined;
+    this.thenCallbacks = [];
+    this.catch = undefined;
+    this.finally = undefined;
+    this.then = function(callback){
+        console.log("then",callback)
+        this.thenCallbacks.push(callback);
+        return this;
+    }
+    this.catch = function(callback) {
+        this.catch = callback;
+        return this;
+    }
+    this.finally = function(callback) {
+        this.onFinally = callback;
+        return this;
+    } 
+    action(resolver.bind(this),rejector.bind(this));
+
+    function resolver(value) {
+        this.status = 'resolved'
+        this.value = value
+        console.log("resolver",this.thenCallbacks)
+        this.thenCallbacks.forEach(function(func) {
+            func(this.value)
+        }, this)
+
+        if(typeof this.onFinally === 'function'){
+            this.onFinally(this.value)
+        }
+    }
+
+    function rejector(value) {
+        this.status = 'rejected'
+        this.value = value
+
+        if(typeof this.catch === 'function') {
+            this.catch(this.value)
+        }
+        if(typeof this.onFinally === 'function' ) {
+            this.onFinally(this.value)
+        }
+    }
+}
+
+
+function get(url) {
+    console.log("get",url)
+    return new MyPromise(function(resolve,reject) {
+        console.log("resolve",resolve)
+        var request = new XMLHttpRequest();
+        request.open('GET',url);
+
+        request.onload = function() {
+            if(request.status === 200){
+                console.log("resolve1",resolve)
+                resolve(request.response)
+            }
+            else {
+                reject(Error(request.statusText))
+            }
+        };
+
+        request.onError = function() {
+            reject(Error('NETWORK Error'));
+        }
+
+        request.send();
+    })
+}
+
+get('https://nerboda.github.io')
+.then(function(response) {
+    console.log("response",response)
+})
+.catch(function(error) {
+    console.log('error',error)
+})
+.finally(function(result) {
+    console.log('result',result)
+})

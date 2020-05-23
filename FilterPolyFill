@@ -1,0 +1,17 @@
+Array.prototype.myFilter = function(func) {
+    if( !((typeof func === 'Function' || typeof func === 'function') && this))
+     throw new TypeError()
+
+    var result = [];
+    for(var i=0;i<this.length;i++) {
+        if(i in this) {
+            var val = this[i]
+            if(func.call(this,val,i)){
+                result.push(val)
+            }
+        }
+    }
+    return result;
+};
+
+[10,5,8,13,19,34].myFilter( val => val % 2 === 0)

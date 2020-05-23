@@ -1,0 +1,8 @@
+function a() {
+ var x= 0;
+ this.y = function() { 
+    console.log("y function called")
+   
+ }
+}
+console.log("a:",a().y)

@@ -1,0 +1,68 @@
+function MyPromise(action) {
+    this.status = 'pending'
+    this.value = undefined;
+    this.thenCallbacks = []
+    this.catch = undefined
+    this.finally = undefined
+
+    this.then = function(callback){
+        this.thenCallbacks.push(callback)
+        return this
+    }
+
+    this.catch = function(callback) {
+        this.catch = callback
+        return this
+    }
+    this.finally = function(callback) {
+        this.onFinally = callback
+        return this
+    }
+    
+    action(resolver.bind(this),rejector.bind(this));
+
+
+    function resolver(value) {
+        this.status = 'resolved'
+        this.value = value
+
+        this.thenCallbacks.forEach(function(func){
+            func(value)
+        },this)
+
+        if(typeof this.onFinally === 'function'){
+          this.onFinally(this.value)  
+        }
+    }
+
+    function rejector(value) {
+        this.status = 'rejected'
+        this.value = value
+
+        if(typeof this.catch === 'function'){
+            this.catch(this.value)
+        }
+        if(typeof this.onFinally === 'function'){
+            this.onFinally(this.value) 
+        }
+    }
+}
+
+function getResult(timeOut) {
+  
+  return new MyPromise( function(resolve,reject){
+    setTimeout(() => resolve(timeOut), timeOut)    
+  })  
+  
+}
+
+var result = getResult(2000);
+result.then( (value) => {
+    console.log("resolve result",value)
+})
+result.catch( (value) => {
+    console.log("error result",value)
+})
+result.finally( (value) => {
+    console.log("finally result",value)
+})

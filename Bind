@@ -1,0 +1,19 @@
+Function.prototype.myOwnBind = function(newThis){
+  
+  var targetFunction = this
+
+  return function bindFunction() {
+      return targetFunction.call(newThis)
+  }
+}
+
+var obj = {
+   name: 'Anshul'
+}
+
+function getName() {
+  console.log(this.name)
+}
+
+var getDetail = getName.myOwnBind(obj)
+getDetail()

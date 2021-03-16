@@ -1,0 +1,18 @@
+class Animals {
+  constructor(name,age){
+    this.name = name
+    this.age = age
+  }
+  sing(){
+    return `${this.name} can sing`
+  }
+  dance(){
+    return `${this.name} can dance`
+  }
+}
+var animals = new Animals('Parrot',5)
+var wildAnimals = new Animals('tiger',6)
+console.log(animals.sing())
+console.log(animals)
+console.log(wildAnimals.sing())
+Animals.prototype

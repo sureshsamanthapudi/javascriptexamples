@@ -1,0 +1,10 @@
+new Promise((resolve,reject) => {
+    setTimeout(() => resolve("virat"),10000)
+}).then(response => {
+  console.log("then response",response)
+}).catch(error => {
+  console.log("catch response",error)  
+}).finally( () => {
+  console.log("finally")  
+})
+console.log("outside promise")

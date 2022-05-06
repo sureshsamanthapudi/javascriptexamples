@@ -1,0 +1,10 @@
+ var bar =5;
+ function foo(){
+   console.log(bar)
+ }
+ function print(callback) {
+  let bar = 8;
+  callback()
+  console.log("print",bar)
+ }
+ print(foo)

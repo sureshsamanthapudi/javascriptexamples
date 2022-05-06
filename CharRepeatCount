@@ -1,0 +1,29 @@
+
+//input = "babdcb" : abbbcd
+//bcd
+//output = "a1b3c1d1"
+
+function charCount(input){
+  var tempStr = input.split("").sort()
+  console.log(tempStr)
+  var finalString = ''
+  for(var i=0;i<tempStr.length;i++){
+    console.log("tempStr[i]",tempStr[i],tempStr[i-1])
+    if(tempStr[i] !== tempStr[i-1]){
+    console.log(tempStr[i])  
+    var count = 1
+    for(var j=i+1;j<tempStr.length;j++) {
+       if(tempStr[i] === tempStr[j]) {
+         count++
+       } else {
+        break;
+       } 
+   
+    }
+    finalString += tempStr[i]+count
+  }
+  }
+ console.log("finallString",finalString)
+}
+charCount("babdcb")
+

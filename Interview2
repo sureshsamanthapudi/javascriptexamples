@@ -1,0 +1,38 @@
+//OutPut {a.b.c: 1, a.b.e: 2, f.g: 5, d: 1}
+const input = {
+	a: {
+		b: { 
+			c: 1,
+			e: 2,
+		} 
+	}, 
+	f: {
+		g: 5,
+	},
+	d: 1,
+}
+
+
+const concatKeys = (obj) => {
+	let res = {}
+	for (let i in obj) {
+   // console.log("i",i)
+    //console.log("res Out",res)
+  	if(obj[i] && typeof obj[i] === 'object') {
+     console.log("obj",obj[i])
+     const temp = concatKeys(obj[i])
+      console.log("temp",temp)
+     //console.log("res",res)
+     for (let j in temp) {
+      //console.log("i",i,j)
+      res[i+'.'+j] = temp[j]
+     }
+    } else {
+		console.log("else block",i)
+    	res[i] = obj[i]
+    }
+  }
+  
+  return res
+}
+console.log(concatKeys(input))

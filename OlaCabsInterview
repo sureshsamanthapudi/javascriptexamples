@@ -1,0 +1,78 @@
+//1)How can we add "PC" in the electronics array
+//var electronics,commercials;
+//electronics = ["mobile","tv","AC","laptop","ipad","tablet","smatwatch"]
+//electronics.push("PC")
+//console.log("electronics",electronics)
+
+
+//2)
+
+// let meter = 1;
+// while (meter <= 3) {
+//     console.log("values is:"+meter);
+//     meter = ++meter;
+// }
+
+
+//3) Which function is executed first when we start the program and can't be called again
+//The setup() function is called once when the program starts. It's used to define initial environment properties such as screen size and background color and to load media such as images and fonts as the program starts. There can only be one setup() function for each program and it shouldn't be called again after its initial execution.
+
+
+//4) How can we make boolean equal
+//var Flag = true;
+//var reFlag = new Boolean(true);
+//console.log(Flag == reFlag)
+
+//5) Using match function how can we get the nearest integer value for any variable?
+//var val = 5.3
+//console.log("floor",Math.floor(val))
+
+//6)In the following scenario how can we return values "Copper" and "10" using functions
+// var metal = {
+//     basicName: "Copper",
+//     moderateName: "Silver",
+//     basicValuePerGM: 10,
+//     moderateValuePerGM: 60,
+//     getData: function() {
+//         //return this.basicName +"Value Is "+this.basicValuePerGM //OutPut Copper Values Is 10
+//         // return basicName + "Values Is" + basicValuePerGM //basicName is not defined
+//         //return metal.basicName + metal.basicValuePerGM //Copper10
+//         // return $basicName +" Value Is"+ $basicValuePerGM // $basicName is not defined
+
+//     }
+// }
+// console.log(metal.getData())
+
+
+
+
+//7)
+// const obj1 = { property1: 'initial_data', property2: "Suresh"};
+//         const obj2 = Object.freeze(obj1.property2);
+//         // var obj2 = {property1: ""}
+//         obj2.property1 = 'new_data';
+//         obj1.property2 = "updated_data"
+//         console.log(obj2.property1);
+//         console.log(obj1.property2);
+
+// var obj1 = ["T-Shirt","Jeans","Shirt","Pant"]
+// obj1.freeze("Jeans")
+// obj1[1] = "PepeJeans"
+// console.log(obj1)
+
+//8)
+//An if statement is used below.
+//Choose the right code to add an additional condition that compares "tv"
+var product = 'tv'
+if(product == 'phonoe'){
+  console.log("phone product")
+} else if(product == 'tv') {
+  console.log("tv product")      
+}
+
+
+
+
+
+
+

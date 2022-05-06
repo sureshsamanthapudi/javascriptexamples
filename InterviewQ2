@@ -1,0 +1,14 @@
+//Given two arrays [4,1,7,2] [r,e,a,c] then sort the charcter array according to first array
+// arr1 [3,2,0,1] arr2 ['r','e','a','c'] => ['a','c','e','r']
+var arr1 = [3,2,0,1]
+// var arr1 = [4,1,7,2]
+var arr2 = ['r','e','a','c']
+var arr3 = []
+for(let i=0;i<4;i++){
+ const index = arr1[i]
+ arr3[index] = arr2[i]
+}
+// console.log("arr3",arr3)
+for(let i=0;i<4;i++){
+    console.log(arr3[i])
+}

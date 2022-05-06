@@ -1,0 +1,43 @@
+//Give an array [3,6,7,8,13,2,15] and sum = 19
+var arr1 = [3,6,7,8,13,2,15]
+// console.log("sort",arr1.sort())
+
+
+// arr1.sort((a,b) => { return a-b })
+// console.log(arr1)
+// //Binary Search
+// var  mid = Math.floor(arr1.length/2)
+// console.log(mid)
+// console.log(arr1[mid]+arr1[mid-1])
+
+function binarySearch(arr,element,start,end){
+    if(start>end) return false
+    var mid = Math.floor((start+end)/2)
+    if(arr[mid] === element){
+        return true
+    } else if(arr[mid] > element){
+        return binarySearch(arr,element,start,mid-1)
+    } else {
+        return binarySearch(arr,element,mid+1,end)
+    }
+}
+
+function findElement(arr,n){
+  const sortArray = arr.sort((a,b) => a-b)
+  //const newArray = sortArray.slice(1,arr.length)
+  for(var i=0;i<arr.length;i++){
+
+  const newArray = sortArray.slice(i+1,sortArray.length)
+  
+     const elementToFind = n-arr[i]
+     if(binarySearch(newArray,elementToFind,0,newArray.length)){
+         console.log("Found items",arr[i],elementToFind)
+         break;
+     }
+  }
+}
+
+findElement(arr1,19)
+
+
+

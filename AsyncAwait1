@@ -1,0 +1,17 @@
+//async function myFunction() {return "Hello";}
+//console.log(myFunction().then((response) => console.log(response)))
+
+
+async function f() {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("done!"), 1000)
+  });
+
+  let result = await promise; // wait until the promise resolves (*)
+
+  alert(result); // "done!"
+  return result
+}
+
+f().then(response => console.log("value",response));

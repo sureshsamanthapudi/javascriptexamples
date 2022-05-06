@@ -1,0 +1,31 @@
+//input1: 3
+//input12: [1,2,1]
+//output: if element repeats more than half the length then it should return that element otherwise -1
+//output: 1
+
+
+//input1: 4
+//input2: [1,2,2,1]
+//output: -1
+
+function test(input1,input2){
+  var majority = input1/2
+  console.log("majority",majority)
+  for(var i=0;i< input2.length;i++){
+      var count = 1;
+      for(var j=i+1;j<input2.length;j++){
+          if(input2[i] === input2[j]){
+            count++
+          }
+      }
+    if(count > majority){
+       return input2[i]
+    }
+  }
+  return -1  
+}
+
+var input1 = 6
+var input2 = [1,4,4,4,4, 1,2]
+var result = test(input1,input2)
+console.log(result)

@@ -1,0 +1,31 @@
+function shallowCompare(newObj, prevObj){
+    for (key in newObj){
+        if(typeof newObj[key] === 'object'){
+            return shallowCompare(newObj[key], prevObj[key])
+        } else if(prevObj[key] != newObj[key]){ 
+            return false;
+        }
+    }
+    return true;
+}
+
+var game_item = {
+    game: "football",
+    first_world_cup: "1930",
+    teams: {
+         North_America: 1,
+         South_America: 4,
+         Europe: 8 
+    }
+}
+
+var updated_game_item = {
+    game: "football",
+    first_world_cup: "1930",
+    teams: {
+         North_America: 1,
+         South_America: 4,
+         Europe: 8 
+    }
+}
+shallowCompare(updated_game_item, game_item);

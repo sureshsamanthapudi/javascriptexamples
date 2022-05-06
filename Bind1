@@ -1,0 +1,17 @@
+Function.prototype.myBind = function(newthis){
+    var targetFunction = this
+
+    return function newBind(){
+        return targetFunction.call(newthis)
+    }
+}
+var obj = {
+   name: 'Anshul'
+}
+
+function getName() {
+  console.log(this.name)
+}
+
+var getDetail = getName.myBind(obj)
+getDetail()

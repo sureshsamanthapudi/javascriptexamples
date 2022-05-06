@@ -1,0 +1,31 @@
+// input1: 3
+// input12: [1,2,1]
+//output: if element repeats more than half the length then it should return that element otherwise -1
+//output: 1
+
+function majorityElement(arr,length){
+ var majoritySize = length/2
+ const srtArray = arr.sort((a,b) => a-b) 
+ console.log("1",srtArray) 
+ let majorityElement = -1   
+ for(var i=0;i<length;i++){
+     console.log("srtArray",srtArray[i])
+     if(srtArray[i] !== srtArray[i-1]){
+         var count=1
+         for(var j=i+1;j<length;j++){
+             if(srtArray[i] === srtArray[j]){
+                 count++
+             }
+         }
+         if(count>majoritySize){
+             majorityElement = srtArray[i]
+             break;
+         }
+     }
+ }
+ console.log("majorityElement",majorityElement)   
+}
+
+const input2 = 11
+const input1 = [1,2,3,3,3,2,4,3,3,2,3]
+majorityElement(input1,input2)

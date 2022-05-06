@@ -1,0 +1,17 @@
+function debounce(fn,timeout) {
+    let timer
+    return(...args) => {
+        clearTimeout(timer)
+        console.log("timeout",...args)
+        timer = setTimeout(() => fn(...args),timeout)
+    }
+}
+
+function callAPI(a,b){
+ console.log("Calling API",a,b)
+}
+
+var testDebounce = debounce(callAPI,3000)
+testDebounce(5,6)
+testDebounce(5,6)
+

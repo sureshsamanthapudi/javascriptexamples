@@ -1,0 +1,36 @@
+function test(input) {
+   var temp = input.split("_")
+   console.log("temp",temp)
+   if(temp.length > 1) {
+       var finalString = '';
+       for(var i=0;i<temp.length;i++){
+          if(i === 0){
+            finalString += temp[i]
+          } else {
+            finalString += temp[i].substring(0,1).toUpperCase()+temp[i].substring(1,temp[i].length)
+          }
+       }
+       return finalString
+   } else {
+       var tempStr = input.split("")
+       console.log(tempStr)
+       var finalString = ''
+       for(var i=0;i<tempStr.length;i++){
+         console.log("tempStr",tempStr[i],tempStr[i].toLowerCase())
+         if(tempStr[i] === tempStr[i].toLowerCase()){
+             finalString += tempStr[i]
+         } else {
+             finalString += "_"+tempStr[i].toLowerCase()
+         }
+       }
+       return finalString
+   }
+}
+var result = test("thisIsVariable")
+console.log("result",result)
+
+//input = "this_is_varriable"
+//output = "thisIsVarriable"
+
+//input = "thisIsVarriable"
+//output = "this_is_varriable"

@@ -1,0 +1,20 @@
+class One {
+  constructor(name){
+    this.name = name
+  }
+  getName(){
+    return this.name
+  }
+}
+class Two extends One{
+  constructor(name,age){
+    super(name)
+    this.age = age
+   
+  }
+  getAge(){
+    return this.age
+  }
+}
+//var one = new One("suresh")
+var two = new Two("Rajesh",34)

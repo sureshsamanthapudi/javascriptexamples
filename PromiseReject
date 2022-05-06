@@ -1,0 +1,13 @@
+Promise.reject(2)
+    .then((d)=> {
+        console.log('1 then',d) ; 
+        return d
+      })
+    .then((e)=> {
+        console.log('2 then',e) 
+      })
+    .catch((err)=> {
+         console.log("error",err); 
+         return err
+     })
+    .then((f)=>console.log(f))

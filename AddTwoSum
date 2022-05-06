@@ -1,0 +1,72 @@
+let arr = [10,25,44,25,73,27,54,44,12,32,25]
+//Find sum of two numbers should exist in array
+//ex:32+12 = 44 (Forty four)
+
+// for(var i=0;i<arr.length;i++){
+//     for(var j=i+1;j<arr.length;j++){
+//         var sum = arr[i]+arr[j]
+//         console.log("sum",sum)
+//         for(var k=0;k<arr.length;k++){
+//             if(i!==k && j!==k&&sum == arr[k]){
+//                 console.log("Sum exist values",arr[i],arr[j],` Sum Is${sum}`)
+//             }            
+//         }
+//     }
+// }
+
+// function binarySearch(arr,element,start,end){
+//     if(start>end) return false
+//     var mid = Math.floor((start+end)/2)
+//     if(arr[mid] === element){
+//         return true
+//     } else if(arr[mid] > element){
+//         return binarySearch(arr,element,start,mid-1)
+//     } else {
+//         return binarySearch(arr,element,mid+1,end)
+//     }
+// }
+
+
+
+// function findElement(arr,n){
+//   //const sortArray = arr.sort((a,b) => a-b)
+//   //const newArray = sortArray.slice(1,arr.length)
+//   for(var i=0;i<arr.length;i++){
+
+//     const newArray = arr.slice(i+1,arr.length).concat(arr.slice(0,i))
+//     for(var j=0;j<newArray.length;j++){
+//       var sum = arr[i]+newArray[j]
+      
+//       for(var k=j+1;k<newArray.length;k++){
+//         if(sum === newArray[k]){
+//             console.log("Sum exist values",arr[i],newArray[j],` Sum Is${sum}`)
+//             break
+//         }
+//       }
+//     }  
+//   }
+// }
+
+// findElement(arr,11)
+
+
+function findElement(arr,n) {
+    for(var i=0;i<arr.length-1;i++){
+        var sum = arr[i]+arr[i+1]
+        if(arr.includes(sum)){
+            console.log("Sum",sum,arr[i],arr[i+1])
+        }
+        // for(var j=0;j<arr.length;j++){
+        //     if(sum === arr[j]){
+        //         console.log("Sum",sum,arr[i],arr[i+1])
+        //         break
+        //     }
+        // }
+    }
+  
+}
+
+findElement(arr,11)
+
+
+

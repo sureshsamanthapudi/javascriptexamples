@@ -1,0 +1,31 @@
+const functionMemozation = (fn,context) => {
+    const res = {}
+    return function(...args) {
+       //console.log("args",args)
+       const argsString = JSON.stringify(args)
+        if(!res[argsString]){
+          //  console.log("fn",fn)
+            const val = fn(...args)
+           //ss console.log("val",val)
+            res[argsString] = val
+        }
+        return res[argsString]
+    }
+    
+}
+
+const clumsyProduct = (num1,num2) => {
+    for(var i=0;i<10000000000;i++){}
+    return num1 * num2
+}
+
+const testfn = functionMemozation(clumsyProduct)
+
+console.log("Firt Start",new Date(Date.now()))
+console.log(testfn(2345,6789))
+console.log("Firt End",new Date(Date.now()))
+
+
+console.log("Second Start",new Date(Date.now()))
+console.log(testfn(2345,6789))
+console.log("Second End",new Date(Date.now()))

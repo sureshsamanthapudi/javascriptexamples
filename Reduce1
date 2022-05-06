@@ -1,0 +1,5 @@
+function reduceVal(arr) {
+   return arr.reduce((total,num) => (total+num)) 
+}
+var arr = [5,7,9,3,4,8]
+console.log(reduceVal(arr))

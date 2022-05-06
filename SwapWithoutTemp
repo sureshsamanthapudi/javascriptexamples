@@ -1,0 +1,11 @@
+var a = 5 , b =8
+
+function swap(a,b){
+     a = a + b //13
+    b = a - b // 5
+    a = a - b //8
+
+    console.log(a,b)
+
+}
+swap(a,b)

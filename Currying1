@@ -1,0 +1,11 @@
+function makeSum (a) {
+  return function (b) {
+    return a + b
+  }
+}
+const makeSum10 = makeSum(10)
+
+const makeSum15 = makeSum(15)
+
+console.log(makeSum10(10))
+console.log(makeSum15(10))

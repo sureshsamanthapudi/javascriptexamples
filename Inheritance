@@ -1,0 +1,12 @@
+//How to create inheritance with the below object. 
+//Add dog in cat object
+var cat = {breed: 'Russian Blue'}
+var dog = {age: 7}
+//Object.setPrototypeOf(cat,dog)
+//console.log(cat.age)
+console.log(cat)
+console.log(cat.__proto__)
+cat.__proto__ = dog
+console.log(cat)
+
+

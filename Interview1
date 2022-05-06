@@ -1,0 +1,39 @@
+//Expected OutPut
+// address_office_building: "random"
+// address_office_roomDetails_roomNumber: 123
+// address_office_street: "some street"
+// address_personal: "abc"
+// name: "test"
+// qualification: null
+
+const obj = {
+ name: "test",
+ qualification: null,
+ address: {
+     personal: "abc",
+     office: {
+         building: "random",
+         roomDetails: {
+             roomNumber: 123
+         },
+         street: 'some street'
+     }
+ }
+}
+
+const flatten = (obj) => {
+    let res = {}
+    for(let i in obj){
+      console.log(i,typeof obj[i])
+     if(obj[i] && typeof obj[i] === 'object'){
+         const tempFlat = flatten(obj[i])
+         for(let j in tempFlat){
+             res[i+"_"+j] = tempFlat[j]
+         }
+     } else {
+         res[i]=obj[i]
+     }
+    }
+    return res
+}
+console.log(flatten(obj))

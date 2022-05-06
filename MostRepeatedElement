@@ -1,0 +1,52 @@
+var arr = [10,25,44,25,73,27,25,44,12,32,25]
+//var arr = [40, 50, 30, 40, 50, 40, 30,14];
+
+//Expected Output: 25 4(As 25 repeated 4 times which is the majority)
+
+// var mostRepeatElement;
+// var count = 0
+// for(var i=0;i<arr.length;i++){
+//     var repeat = 1
+//     for(var j=i+1;j<arr.length;j++){
+//         if(arr[i] === arr[j]){
+//           repeat++  
+//         }
+//     }
+//     if(count<repeat){
+//        count=repeat
+//        mostRepeatElement = arr[i] 
+//     }
+// }
+// console.log("Most Repeated Item",mostRepeatElement,` Repeated ${count}`)
+
+
+function maxFreq(arr, n) {
+        //using moore's voting algorithm
+       var map = new Map()
+       for(var i=0;i<n;i++){
+          if(map.has(arr[i])){
+             map.set(arr[i],map.get(arr[i])+1)
+          } else {
+             map.set(arr[i],1)
+          }
+       }
+
+      var max_count = 0 
+      var item = 0
+      map.forEach((value,key) => {
+         if(max_count<value){
+            max_count=value
+            item=key
+         }
+      })
+      console.log("Max repeat",max_count,item)
+       
+}
+var freq = maxFreq(arr, arr.length);
+var count = 0;
+for (var i = 0; i < arr.length; i++) {
+   if (arr[i] === freq) {
+     count++;
+   }
+}
+console.log(count)

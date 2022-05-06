@@ -1,0 +1,26 @@
+// Sample array:
+// array1 = [1,0,2,3,4];
+// array2 = [3,5,6,7,8,13];
+// Expected Output:
+// [4, 5, 8, 10, 12, 13]
+
+function addArray(arr1,arr2){
+  var maxArrayLeng = arr1.length > arr2.length ? arr1.length : arr2.length
+  var newArr = []
+  for(var i=0;i<maxArrayLeng;i++){
+     if(arr1[i]){
+       if(arr2[i]){
+         newArr[i] = arr1[i] + arr2[i]
+       } else {
+         newArr[i] = arr1[i]
+       }
+     }else {
+       newArr[i] = arr2[i]
+     }
+     
+  }
+  console.log("newArr",newArr)  
+}
+var array1 = [1,0,2,3,4];
+var array2 = [3,5,6,7,8,13];
+addArray(array1,array2)

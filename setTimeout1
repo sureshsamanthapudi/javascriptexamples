@@ -1,0 +1,18 @@
+function SuperType(name){
+    this.name = name
+}
+SuperType.prototype.getName = function(){
+    return this.name
+}
+function SubType(age){
+    this.age = age
+}
+
+SubType.prototype = new SuperType('Suresh')
+
+SubType.prototype.getAge = function(){
+    return this.age
+}
+
+var subType = new SubType(23)
+console.log(subType.getAge())

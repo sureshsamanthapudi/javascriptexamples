@@ -1,0 +1,30 @@
+const arr = [2, 3, 5]
+Array.prototype.myReduce = function(callback,init) {
+  let res = init || this[0]
+  console.log("this[0]",this[0])
+  var arr = this
+  let initValue = init ? 0 : 1
+  for(let i=initValue; i< arr.length; i++){
+    console.log("initValue",res,arr[i])
+    res = callback(res,arr[i])    
+  }
+  console.log("res",res)
+  return res
+}
+
+
+// Array.prototype.myReduce = function (callback, init, current) {
+// 	let res = init || this[0]
+//   let initValue = init ? 0: 1
+// 	for(let i= initValue; i < this.length; i++) {
+//     	  let currentVal = this[i]
+// 				res = callback(res, currentVal)
+//   }
+//   return res
+
+// }
+
+const multiRes = arr.myReduce((acc,item) => {
+  return acc*item
+})
+console.log("multiRes",multiRes)

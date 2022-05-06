@@ -1,0 +1,12 @@
+function mySetTimeout(callback,delay){
+    var startTime = Date.now()
+    function check() {
+        if(Date.now() >= startTime+delay){ 
+            callback(delay)
+        }else {
+         window.requestIdleCallback(check)
+        }
+    }
+    window.requestIdleCallback(check)
+}
+mySetTimeout((value) => console.log("value",value),5000)

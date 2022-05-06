@@ -1,0 +1,15 @@
+const useMyMemo = (create, dependencies) => {
+  const val = React.useRef(create());
+  const prevDependencies = React.useRef([]);
+  if (!shallowEquals(dependencies, prevDependencies.current)) {
+    val.current = create();
+    prevDependencies.current = [...dependencies];
+  }
+  return val;
+};
+function test(a,b){
+  console.log("test executing")
+  return a+b
+}
+
+useMyMemo(() => test(10,15),[10,15])

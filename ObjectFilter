@@ -1,0 +1,35 @@
+//We have a list of emp data and want to filter unique items based on emp ID.
+const empData = [
+{
+ id: 1,
+ name: "Suresh",
+ age: 38
+},
+{
+ id: 2,
+ name: "Jashwin",
+ age: 6
+},
+{
+ id: 1,
+ name: "Suresh Varma",
+ age: 38
+},
+{
+ id: 3,
+ name: "Anshul",
+ age: 9
+},
+{
+ id: 4,
+ name: "Sudha",
+ age: 32
+}
+]
+const empIDs = empData.map((item) => item.id)
+const filteredData = empData.filter((item,index) => !empIDs.includes(item.id,index+1))
+console.log(filteredData)
+const val = empData.filter((item,index,a) => a.findIndex(t=> t.id === item.id) === index)
+console.log(val)
+//empData.filter((v,i,a)=>a.findIndex(t=>(JSON.stringify(t) === JSON.stringify(v)))===i)
+console.log(empData.reverse())

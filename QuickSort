@@ -1,0 +1,35 @@
+// var arr = [9,0,2,7,-2,6,1]
+function quickSort(originalArr){
+       console.log("originalArr",originalArr) 
+       if (originalArr.length <= 1) {
+         return originalArr;
+       } else {
+         var leftArr = []
+         var rightArr = []
+         var newArr = []
+    
+         var length = originalArr.length;
+         var pivot = originalArr.pop();    
+         //console.log("originalArr",originalArr)
+         //var rightArr = [];
+         //var newArr = [];
+         //var pivot = originalArr.pop();      //  Take a pivot value
+//                var length = originalArr.length;
+        //console.log("pivot",pivot)
+        for(var i=0;i<length-1;i++){
+            if(originalArr[i]<=pivot){
+                leftArr.push(originalArr[i])
+            } else {
+                rightArr.push(originalArr[i])
+            }
+        }
+        console.log("leftArr",leftArr)
+        console.log("rightArr",rightArr)
+        return newArr.concat(quickSort(leftArr),pivot,quickSort(rightArr))
+    }
+}
+
+   var myArray = [9, 0, 2, 7, -2, 6, 1 ];
+   var sortedArray = quickSort(myArray);
+
+   console.log(sortedArray)

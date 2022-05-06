@@ -1,0 +1,18 @@
+function test(){
+  return new Promise((resolve,reject) => {
+   setTimeout(() => {
+     console.log("setTimeout")
+     resolve("vijat")
+     },10000)
+  })
+}
+async function testAsync(){
+  var obj = await test()
+  console.log("object",obj)
+//   obj.then(response => {
+//     console.log(response)
+//   }).catch(error => {
+//     console.log(error)  
+//   })
+}
+testAsync()

@@ -1,20 +1,26 @@
-var Singleton = function() {
-    var instance;
-
+var singleton = (function () {
+     var instance
     function createInstance(){
-        var obj = {name: 'suresh'}
+        var obj = {title: "Welcome"}
         return obj
     }
 
+  
     return {
-        getInstance: function() {
-            if(!instance){
+        getInstance: function () {
+            if (!instance) {
                 instance = createInstance();
             }
             return instance;
         }
-    }
-}
-console.log(Singleton().getInstance())
+    };
+    
+})()
+
+var obj1 = singleton.getInstance();
+var obj2 = singleton.getInstance();
+
+console.log(obj1);
+console.log(obj1 === obj2); 
 
 

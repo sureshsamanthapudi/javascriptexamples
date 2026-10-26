@@ -1,0 +1,46 @@
+//function bracketsProblem(str){
+//     let openBrackets1 = "{"
+//     let openBrackets2 = "["
+//     let openBrackets3 = "("
+
+//     let closedBrackets1 = ")"
+//     let closedBrackets2 = "}"
+//     let closedBrackets3 = "]"
+//     console.log(str.split(""))
+//     let stackArr = []
+//     str.split("").forEach((item) => {
+//         if(item === openBrackets1 || item === openBrackets2 || item === openBrackets3) {
+//         console.log("pushing",item)
+//         stackArr.push(item)
+//     } else if(item === closedBrackets1 || item === closedBrackets2 || item === closedBrackets3) {
+//         console.log("pop",item)
+//         stackArr.pop(item)
+//     }
+//     })
+//     return stackArr;
+// }
+
+function bracketsProblem(str){
+    let stack = [];
+    for(let char of str){
+        console.log("bracketsProblem",char)
+        if(char === "(" || char === "{" || char === "["){
+           stack.push(char) 
+        } else {
+            let last = stack.pop()
+            if (
+                (char === ')' && last !== '(') ||
+                (char === '}' && last !== '{') ||
+                (char === ']' && last !== '[')
+                ) {
+                   return false
+                }
+            
+            
+        }
+    }
+    return stack.length === 0
+}
+
+const isBracesMatched = bracketsProblem("((()))")
+console.log(isBracesMatched  ? "Proper Array" : "Inavlid Array")

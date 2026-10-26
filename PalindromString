@@ -1,0 +1,13 @@
+function palindromStr(str){
+    return str.split("").reduce((acc,char) => {
+       return char+acc 
+    },"")
+}
+//let str= "madam"
+let str= "sis"
+let revStr = palindromStr(str)
+if(revStr === str){
+   console.log(str+" is palindrom string")
+} else {
+   console.log(str+" is not palindrom string")
+}

@@ -1,0 +1,14 @@
+function flatternNestedArray(arr){
+    const result = []
+    for(let item of arr){
+        if(Array.isArray(item)){
+            result.push(...flatternNestedArray(item))
+        } else {
+            result.push(item)
+        }
+    }
+
+    return result;
+}
+
+console.log(flatternNestedArray([1, [2, [3, 4]], 5]));

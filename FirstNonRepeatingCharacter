@@ -1,0 +1,17 @@
+//Return Fist Non Repeating Character
+function NonRepeatingCharacter(str){
+  let map = new Map()
+  for(let ch of str){
+    map.set(ch,(map.get(ch) || 0) + 1)
+  }
+  console.log("map",map)
+  for(let ch of str){
+    if(map.get(ch) === 1){
+      return ch
+    }
+  }
+  console.log("map",map)  
+}
+
+let char = NonRepeatingCharacter("swiss")
+console.log("NonRepeatingCharacter",char)

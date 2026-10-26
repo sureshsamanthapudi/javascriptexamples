@@ -1,0 +1,28 @@
+// let arr = [10, 25, 5, 80, 40];
+
+// let largest = arr.reduce((max, num) => {
+//     return num > max ? num : max;
+// }, arr[0]);
+
+// console.log(largest);
+
+
+// let arr = [10, 25, 5, 80, 40];
+
+// let largest = Math.max(...arr);
+
+// console.log(largest); // 80
+
+
+
+let arr = [10, 25, 5, 80, 40];
+
+let largest = arr[0];
+
+for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > largest) {
+        largest = arr[i];
+    }
+}
+
+console.log(largest);
